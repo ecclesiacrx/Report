@@ -43,6 +43,7 @@ body::before {
   position: relative;
   width: 600px;
   max-width: 90%;
+  background: linear-gradient(145deg,#87CEEB,#00BFFF);
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 0 40px rgba(135,206,235,0.8);
@@ -123,7 +124,6 @@ body::before {
 </style>
 </head>
 
-  
 <body>
 
 <!-- BOX 1 -->
@@ -131,9 +131,11 @@ body::before {
   <div class="title typing" id="title1"></div>
   <div class="content">
     <span class="underline">Task Assigned</span>
-    Configured Google Analytics 4 (GA4) conversion tracking using Google Tag Manager (GTM) to accurately track course purchases across multiple marketing channels.
+    Managed email marketing campaigns, focusing on campaign performance, contact list quality, A/B testing, and overall account health monitoring. 
     <br><br>
-    The website contained dynamic course pages requiring custom logic and session storage to capture values correctly.
+    Initially, I approached email marketing primarily from a design and content perspective, applying marketing principles to craft engaging visuals and messaging.
+    <br><br>
+    However, when the email account was suspended due to a high bounce rate, it became a turning point.
   </div>
 </div>
 
@@ -141,13 +143,12 @@ body::before {
 <div class="box box2">
   <div class="title typing" id="title2"></div>
   <div class="content">
-    A configuration mistake affected the live website and taught me that digital implementation carries real consequences.
+    <span class="underline">Learning Points</span>
+    I started analysing bounce, click-through rates and contact quality patterns across campaigns. By comparing performance data, I was able to identify issues in segmentation and contact hygiene that were affecting deliverability.
     <br><br>
-    • Test carefully before publishing  
-    <br>
-    • Isolate variables  
-    <br>
-    • Use structured troubleshooting  
+    In response, I cleaned and restructured the contact list, refined audience segmentation and messaging, and implemented stricter monitoring of bounce and engagement metrics for subsequent campaigns. 
+    <br><br>
+    Effective email marketing is not just about visuals or tone, it requires careful monitoring of analytics and sender reputation. Shifted my mindset from content-focused marketing to analytics-driven optimisation, where creative decisions are guided by measurable performance data rather than assumptions.
   </div>
 </div>
 
@@ -155,11 +156,13 @@ body::before {
 <div class="box box3">
   <div class="title typing" id="title3"></div>
   <div class="content">
-    After multiple rounds of debugging, I successfully configured functional conversion tracking.
-    <br><br>
-    The company can now track marketing conversions automatically with clearer data visibility.
+    <span class="underline">Value-added</span>
+    As a result, the account health improved by over 25%, bounce rates stabilised, and the contact list was grown in a more sustainable manner.
   </div>
 </div>
+
+<!-- Back Button -->
+<button class="back-btn" onclick="goBack()">Back</button>
 
 <script>
 
@@ -180,10 +183,9 @@ function typeWriter(elementId, text, speed, delay) {
   }, delay);
 }
 
-typeWriter("title1", "Marketing Analytics, Conversion Tracking 📈", 40, 0);
+typeWriter("title1", "Email Marketing Management ✉️", 40, 0);
 typeWriter("title2", "Learning Points", 40, 1200);
 typeWriter("title3", "Value-added", 40, 2200);
-
 
 /* Floating 📈 icons */
 setInterval(() => {
@@ -196,13 +198,12 @@ setInterval(() => {
 
   setTimeout(() => heart.remove(), 6000);
 }, 900);
-  
+
 function goBack(){
   window.location.href="desktop.html";
 }
-  
+
 </script>
-<!-- Add this just **after the last box**, before </body> -->
-<button class="back-btn" onclick="goBack()">Back</button>
+
 </body>
 </html>
