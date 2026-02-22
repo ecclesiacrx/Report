@@ -10,147 +10,103 @@
 <style>
 body {
   margin: 0;
-  padding: 60px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 60px;
-
+  height: 100vh;
+  position: relative;
   background-image: url('background.jpg');
-  background-position: right;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
   font-family: 'Press Start 2P', monospace;
   color: white;
+  overflow: hidden;
 }
 
 /* Dark overlay */
 body::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   background: rgba(0,0,0,0.55);
-  z-index: -1;
 }
 
-/* Each separate container */
-.section-box {
+/* Shared box style */
+.box {
+  position: absolute;
   background: rgba(15,15,15,0.95);
-  width: 85%;
-  max-width: 900px;
-  padding: 45px;
-  border-radius: 25px;
-  box-shadow: 0 0 50px rgba(255, 80, 140, 0.6);
+  width: 420px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 80, 140, 0.6);
 }
 
-/* Section headers */
-.section-title {
-  font-size: 16px;
-  margin-bottom: 30px;
-  text-shadow: 3px 3px 0 #000;
-}
-
-/* Content text */
-.content-text {
-  font-size: 11px;
-  line-height: 2;
-  opacity: 0.95;
-}
-
-/* Underline style */
-.underline {
-  text-decoration: underline;
-  display: block;
+/* Titles */
+.title {
+  font-size: 14px;
   margin-bottom: 20px;
 }
 
-/* Back button */
-.back-btn {
-  margin-top: 20px;
-  padding: 12px 30px;
+.content {
   font-size: 10px;
-  border: none;
-  background: linear-gradient(145deg,#ff4d8d,#ff2e7a);
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 4px 0 #a00040;
-  transition: 0.2s;
+  line-height: 1.8;
 }
 
-.back-btn:hover {
-  transform: translateY(-3px);
+.underline {
+  text-decoration: underline;
+  display: block;
+  margin-bottom: 15px;
 }
 
-.back-btn:active {
-  transform: translateY(2px);
-  box-shadow: 0 2px 0 #a00040;
-}
+/* Position each box separately */
+.box1 { top: 10%; left: 8%; }
+.box2 { top: 25%; right: 8%; }
+.box3 { bottom: 10%; left: 30%; }
+
 </style>
 </head>
 
 <body>
 
-<!-- SECTION 1 -->
-<div class="section-box">
-  <div class="section-title">
-    Marketing Analytics, Conversion Tracking 📈
-  </div>
-
-  <div class="content-text">
+<!-- BOX 1 -->
+<div class="box box1">
+  <div class="title">Marketing Analytics, Conversion Tracking 📈</div>
+  <div class="content">
     <span class="underline">Task Assigned</span>
-
     Configured Google Analytics 4 (GA4) conversion tracking using Google Tag Manager (GTM) to accurately track course purchases across multiple marketing channels.
     <br><br>
-    The website contained pages with dynamic courses and fees which required custom logic and session storage to capture variable values correctly so that each conversion reflected the specific course and cost selected without manual input.
+    The website contained dynamic course pages requiring custom logic and session storage to capture values correctly.
     <br><br>
-    Overall, it required structured sequencing and logical flow thinking rather than isolated steps, similar to what we learned in AI & Robotics.
+    It required structured sequencing and logical flow thinking similar to AI & Robotics.
   </div>
 </div>
 
-<!-- SECTION 2 -->
-<div class="section-box">
-  <div class="section-title">
-    Learning Points
-  </div>
-
-  <div class="content-text">
-    A key turning point happened when a configuration mistake I made affected the live website. That impacted my confidence and made me realise that digital implementation carries real operational consequences.
+<!-- BOX 2 -->
+<div class="box box2">
+  <div class="title">Learning Points</div>
+  <div class="content">
+    A configuration mistake affected the live website and impacted my confidence, teaching me that digital implementation carries real consequences.
     <br><br>
-    • Importance of testing carefully before publishing changes
+    • Test carefully before publishing  
     <br>
-    • Instead of adjusting multiple elements at once → isolate variables to identify the exact source of error
+    • Isolate variables instead of changing multiple elements  
     <br>
-    • Structured troubleshooting approach → debug more effectively and reduce repeated mistakes
+    • Use structured troubleshooting  
     <br><br>
-    Technical development often involves multiple rounds of trial and error before achieving a stable and functional outcome.
+    Technical work requires trial and error before stability.
   </div>
 </div>
 
-<!-- SECTION 3 -->
-<div class="section-box">
-  <div class="section-title">
-    Value-added
-  </div>
-
-  <div class="content-text">
-    After multiple rounds of testing, debugging, watching tutorials, and troubleshooting using documentation and GPT, I successfully configured functional conversion tracking.
+<!-- BOX 3 -->
+<div class="box box3">
+  <div class="title">Value-added</div>
+  <div class="content">
+    After multiple rounds of testing and debugging, I successfully configured functional conversion tracking.
     <br><br>
-    The company can now track marketing conversions across channels automatically, and decisions can be supported with clearer data visibility.
+    The company can now track marketing conversions automatically with clearer data visibility.
     <br><br>
-    These insights also support revenue operations discussions, enabling more informed resource allocation and strategic planning.
+    This supports better strategic planning and resource allocation.
   </div>
 </div>
-
-<button class="back-btn" onclick="goBack()">← Back</button>
-
-<script>
-function goBack(){
-  window.location.href="desktop.html";
-}
-</script>
 
 </body>
 </html>
