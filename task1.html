@@ -39,13 +39,15 @@ body::before {
 .letter-box {
   position: relative;
   z-index: 2;
-  background: rgba(20, 20, 20, 0.9);
+  background: rgba(20, 20, 20, 0.92);
   width: 80%;
-  max-width: 700px;
-  padding: 40px;
+  max-width: 750px;
+  padding: 45px;
   border-radius: 20px;
   box-shadow: 0 0 40px rgba(255, 80, 140, 0.6);
   animation: float 3s ease-in-out infinite;
+  overflow-y: auto;
+  max-height: 85vh;
 }
 
 @keyframes float {
@@ -55,10 +57,23 @@ body::before {
 
 h1 {
   font-size: 18px;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
   text-shadow: 3px 3px 0 #000;
 }
 
+/* Section header black box */
+.section-title {
+  display: inline-block;
+  background: #000;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-top: 30px;
+  margin-bottom: 18px;
+  font-size: 11px;
+  box-shadow: 0 0 15px rgba(255, 80, 140, 0.5);
+}
+
+/* Text content */
 #text {
   font-size: 11px;
   line-height: 2;
@@ -88,7 +103,7 @@ h1 {
   box-shadow: 0 2px 0 #a00040;
 }
 
-/* Floating hearts */
+/* Floating icons */
 .heart {
   position: absolute;
   font-size: 14px;
@@ -120,20 +135,33 @@ h1 {
 
 <script>
 
-/* TYPEWRITER LETTER EFFECT */
+/* TYPEWRITER CONTENT WITH SECTION HEADERS */
 const message = `
-Task Assigned
-Configured Google Analytics 4 (GA4) conversion tracking using Google Tag Manager (GTM) to accurately track course purchases across multiple marketing channels.
-The website contained pages with dynamic courses and fees which required custom logic and session storage to capture variable values correctly so that each conversion reflected the specific course and cost selected without the need for manual input.
-Overall, it also required structured sequencing and thinking in logical flows rather than isolated steps, which is something similar to what we learned in AI & Robotics.`;
+<div class="section-title">Task Assigned</div><br>
+Configured Google Analytics 4 (GA4) conversion tracking using Google Tag Manager (GTM) to accurately track course purchases across multiple marketing channels.<br><br>
+The website contained pages with dynamic courses and fees which required custom logic and session storage to capture variable values correctly so that each conversion reflected the specific course and cost selected without manual input.<br><br>
+It required structured sequencing and logical flow thinking rather than isolated steps.<br><br>
+
+<div class="section-title">Learning Points</div><br>
+A key turning point happened when a configuration mistake I made affected the live website. It impacted my confidence and made me realise that digital implementation carries real operational consequences.<br><br>
+• Importance of testing carefully before publishing changes<br>
+• Isolate variables instead of adjusting multiple elements at once<br>
+• Structured troubleshooting approach to debug more effectively<br><br>
+Technical development often involves multiple rounds of trial and error before achieving a stable outcome.<br><br>
+
+<div class="section-title">Value-added</div><br>
+After multiple rounds of testing, debugging, tutorials, and troubleshooting using documentation and GPT, I successfully configured functional conversion tracking.<br><br>
+The company can now track marketing conversions across channels automatically with clearer data visibility.<br><br>
+These insights support revenue operations discussions and enable more informed strategic planning.
+`;
 
 let i = 0;
-const speed = 35;
+const speed = 20;
 const textDiv = document.getElementById("text");
 
 function typeWriter() {
   if (i < message.length) {
-    textDiv.innerHTML += message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
+    textDiv.innerHTML += message.charAt(i);
     i++;
     setTimeout(typeWriter, speed);
   }
@@ -141,11 +169,11 @@ function typeWriter() {
 
 typeWriter();
 
-/* Floating hearts */
+/* Floating icons */
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
-  heart.innerHTML = "💖";
+  heart.innerHTML = "📈";
   heart.style.left = Math.random() * 100 + "vw";
   heart.style.bottom = "-20px";
   document.body.appendChild(heart);
@@ -156,6 +184,7 @@ setInterval(() => {
 function goBack(){
   window.location.href="desktop.html";
 }
+
 </script>
 
 </body>
