@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For My Valentine Ecclesia ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background-image: url('background.jpg');
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  font-family: 'Press Start 2P', monospace;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+/* Dark overlay */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+/* HEART PULSE BEHIND TITLE */
+.heart-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  font-size: 140px;
+  opacity: 0.15;
+  animation: pulse 2s infinite;
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -60%) scale(1); }
+  50% { transform: translate(-50%, -60%) scale(1.2); }
+  100% { transform: translate(-50%, -60%) scale(1); }
+}
+
+h1 {
+  font-size: 26px;
+  line-height: 1.6;
+  text-shadow: 3px 3px 0px #000;
+  margin-bottom: 25px;
+}
+
+/* TYPING CURSOR */
+.typing::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+.subtitle {
+  font-size: 12px;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+button {
+  padding: 15px 40px;
+  font-size: 12px;
+  border: none;
+  background: linear-gradient(145deg,#ff4d8d,#ff2e7a);
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 0 #a00040;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #a00040;
+}
+
+/* FLOATING SPARKLES */
+.sparkle {
+  position: absolute;
+  font-size: 14px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="heart-bg">💖</div>
+
+<div class="content">
+  <h1 id="title" class="typing"></h1>
+
+  <p class="subtitle">
+    Open gently. It's meant for you only.
+  </p>
+
+  <button onclick="start()">PLAY TOGETHER</button>
+</div>
+
+<script>
+function start(){
+  window.location.href="desktop.html";
+}
+
+/* TYPING EFFECT */
+const text = "FOR MY VALENTINE,\nECCLESIA XUAN XUAN 💖";
+let i = 0;
+const speed = 60;
+const title = document.getElementById("title");
+
+function typeWriter() {
+  if (i < text.length) {
+    if (text.charAt(i) === "\n") {
+      title.innerHTML += "<br>";
+    } else {
+      title.innerHTML += text.charAt(i);
+    }
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+typeWriter();
+
+/* FLOATING SPARKLES */
+setInterval(() => {
+  const sparkle = document.createElement("div");
+  sparkle.className = "sparkle";
+  sparkle.innerHTML = "✨";
+  sparkle.style.left = Math.random() * 100 + "vw";
+  sparkle.style.bottom = "-20px";
+  document.body.appendChild(sparkle);
+
+  setTimeout(() => {
+    sparkle.remove();
+  }, 6000);
+}, 500);
+</script>
+
+</body>
+</html>
