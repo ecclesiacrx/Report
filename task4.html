@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Task 1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  background-image: url('background.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Press Start 2P', monospace;
+  color: white;
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 80px 20px;
+}
+
+/* Dark overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: -1;
+}
+
+/* Clean box style with neon blue gradient */
+.box {
+  position: relative;
+  width: 600px;
+  max-width: 90%;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(135,206,235,0.8);
+}
+
+/* Titles */
+.title {
+  font-size: 14px;
+  margin-bottom: 20px;
+  min-height: 40px;
+}
+
+/* Typing cursor */
+.typing::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Content */
+.content {
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.underline {
+  text-decoration: underline;
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* Bold sub-points */
+.bold-point {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+
+/* Back button centered */
+.back-btn {
+  margin-top: 30px;
+  padding: 12px 30px;
+  font-size: 10px;
+  border: none;
+  background: linear-gradient(145deg,#87CEEB,#00BFFF);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #00BFFF;
+  transition: 0.2s;
+}
+
+.back-btn:hover {
+  transform: translateY(-3px);
+}
+
+.back-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #00BFFF;
+}
+
+/* Floating icon */
+.heart {
+  position: fixed;
+  font-size: 18px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BOX 1 -->
+<div class="box box1">
+  <div class="title typing" id="title1"></div>
+  <div class="content">
+    Working in a small and medium-sized enterprise (SME) exposed me to the pace and realities of business operations in a way that classroom settings cannot fully simulate.
+    <br><br>
+    I learned that in real-world settings, there is often no time to wait for the “perfect” solution. Unlike academic projects where planning is carefully structured before execution, business decisions sometimes need to be rolled out even when not all variables are settled. As long as there is a functional foundation, implementation and refinement often happen simultaneously.
+    <br><br>
+    This experience taught me that progress is sometimes more valuable than perfection. Instead of aiming for flawless execution from the start, teams prioritise adaptability and iteration.
+    <br><br>
+    Working in an SME also meant operating within limited resources. Budget, manpower, and time constraints required creative problem-solving. Instead of relying on expensive tools or external vendors, we often had to research alternatives, leverage existing platforms, and maximise what was already available.
+    <br><br>
+    Through this, I learned that strategy is not just about knowing what is ideal, but about knowing what is feasible within constraints. Effectiveness in this environment depends on resourcefulness, flexibility, and practical judgment.
+  </div>
+</div>
+
+<!-- BOX 2 -->
+<div class="box box2">
+  <div class="title typing" id="title2"></div>
+  <div class="content">
+    <span class="underline">Insights Gained from Internship</span>
+    <span class="bold-point">Professional Growth</span>
+    This internship strengthened my ability to handle uncertainty and responsibility. Working on revenue operations, GA4 configurations, and email optimisation taught me that it is okay not to understand everything at the start. What matters more is actively researching, iterating, and disciplined troubleshooting.
+    <br><br>
+    I became more systematic in my approach by isolating variables, testing carefully, and making data-informed decisions instead of relying on assumptions. I also developed a clearer understanding of how marketing, revenue strategy, analytics, and campaign optimisation intersect in real operations.
+    <br><br>
+    The most important insight I gained is that growth happens in uncomfortable situations.
+    <br><br>
+    Struggling with revenue operations, making mistakes in GA4, and navigating the email account suspension were difficult moments for me. As someone who prefers things to go according to plan, these experiences were frustrating. However, I learned that once something goes wrong, the only productive response is to act and recover.
+    <br><br>
+    While I am still developing greater resilience, I now understand that confidence comes from responding responsibly to challenges, not from avoiding them.
+  </div>
+</div>
+
+<!-- BOX 3 -->
+<div class="box box3">
+  <div class="title typing" id="title3"></div>
+  <div class="content">
+    Overall, this internship shaped both my technical approach and my mindset, helping me become more disciplined in my work and more resilient when facing setbacks.
+    <br><br>
+    Moving forward, I aim to:
+    <br>- Be more confident in advocating for ideas I believe in, supported by research and logic
+    <br>- Share completed work more decisively instead of over-revising due to self-doubt
+    <br>- Take on more technical challenges to strengthen my digital competence
+  </div>
+</div>
+
+<!-- Back Button -->
+<button class="back-btn" onclick="goBack()">Back</button>
+
+<script>
+
+/* TYPEWRITER FOR 3 TITLES */
+function typeWriter(elementId, text, speed, delay) {
+  let i = 0;
+  const element = document.getElementById(elementId);
+
+  setTimeout(() => {
+    function typing() {
+      if (i < text.length) {
+        element.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, speed);
+      }
+    }
+    typing();
+  }, delay);
+}
+
+typeWriter("title1", "Industry Learning Points 💼", 40, 0);
+typeWriter("title2", "Insights Gained from Internship 📊", 40, 1200);
+typeWriter("title3", "Areas of Improvement & Conclusion 📝", 40, 2200);
+
+/* Floating 📈 icons */
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "📈";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.bottom = "-20px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}, 900);
+
+function goBack(){
+  window.location.href="desktop.html";
+}
+
+</script>
+
+</body>
+</html>
