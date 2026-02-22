@@ -8,10 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
-/* BODY LAYOUT FIX */
 body {
   margin: 0;
   min-height: 100vh;
+  position: relative;
   background-image: url('background.jpg');
   background-position: center;
   background-size: cover;
@@ -21,47 +21,30 @@ body {
   color: white;
   overflow-x: hidden;
 
-  /* NEW */
+  /* Vertical layout */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 40px;
-  padding: 60px 20px;
-}
-
-/* Remove absolute positioning */
-.box {
-  position: relative;   /* changed from absolute */
-  width: 420px;
-  max-width: 90%;
-  background: rgba(15,15,15,0.95);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 0 40px rgba(255, 80, 140, 0.6);
-}
-
-/* Remove manual placements */
-.box1, .box2, .box3 {
-  top: unset;
-  left: unset;
-  right: unset;
-  bottom: unset;
+  gap: 50px;
+  padding: 80px 20px;
 }
 
 /* Dark overlay */
 body::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.6);
+  z-index: -1;
 }
 
-/* Shared box style */
+/* Clean box style */
 .box {
-  position: absolute;
-  background: rgba(15,15,15,0.95);
+  position: relative;
   width: 420px;
+  max-width: 90%;
+  background: rgba(15,15,15,0.95);
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 0 40px rgba(255, 80, 140, 0.6);
@@ -97,18 +80,13 @@ body::before {
   margin-bottom: 15px;
 }
 
-/* Position each box */
-.box1 { top: 10%; left: 8%; }
-.box2 { top: 25%; right: 8%; }
-.box3 { bottom: 10%; left: 30%; }
-
 /* Floating icon */
 .heart {
-  position: absolute;
+  position: fixed;
   font-size: 18px;
   animation: floatUp 6s linear infinite;
   opacity: 0.8;
-  z-index: 1;
+  pointer-events: none;
 }
 
 @keyframes floatUp {
