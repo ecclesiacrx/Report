@@ -67,7 +67,30 @@ body::before {
   0%,100% { opacity: 1; }
   50% { opacity: 0; }
 }
+  
+/* Back button */
+.back-btn {
+  margin-top: 40px;
+  padding: 10px 25px;
+  font-size: 10px;
+  border: none;
+  background: linear-gradient(145deg,#87CEEB);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #87CEEB;
+  transition: 0.2s;
+}
 
+.back-btn:hover {
+  transform: translateY(-3px);
+}
+
+.back-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #a00040;
+}
+  
 /* Content */
 .content {
   font-size: 10px;
@@ -174,7 +197,11 @@ setInterval(() => {
 
   setTimeout(() => heart.remove(), 6000);
 }, 900);
-
+  
+function goBack(){
+  window.location.href="desktop.html";
+}
+  
 </script>
 
 </body>
