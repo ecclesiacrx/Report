@@ -10,10 +10,11 @@
 <style>
 body {
   margin: 0;
-  min-height: 100vh;
+  padding: 60px 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  gap: 60px;
 
   background-image: url('background.jpg');
   background-position: right;
@@ -31,46 +32,38 @@ body::before {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.55);
-  z-index: 0;
+  z-index: -1;
 }
 
-/* Main card */
-.letter-box {
-  position: relative;
-  z-index: 2;
-  background: rgba(20, 20, 20, 0.95);
+/* Each separate container */
+.section-box {
+  background: rgba(15,15,15,0.95);
   width: 85%;
   max-width: 900px;
-  padding: 50px;
+  padding: 45px;
   border-radius: 25px;
   box-shadow: 0 0 50px rgba(255, 80, 140, 0.6);
-  overflow-y: auto;
-  max-height: 90vh;
 }
 
-/* Black section headers */
-.section-header {
-  background: #000;
-  padding: 18px 25px;
-  border-radius: 12px;
-  font-size: 14px;
+/* Section headers */
+.section-title {
+  font-size: 16px;
   margin-bottom: 30px;
-  box-shadow: 0 0 20px rgba(255, 80, 140, 0.5);
+  text-shadow: 3px 3px 0 #000;
 }
 
 /* Content text */
 .content-text {
   font-size: 11px;
   line-height: 2;
-  margin-bottom: 40px;
   opacity: 0.95;
 }
 
 /* Underline style */
 .underline {
   text-decoration: underline;
-  margin-bottom: 15px;
   display: block;
+  margin-bottom: 20px;
 }
 
 /* Back button */
@@ -100,10 +93,9 @@ body::before {
 
 <body>
 
-<div class="letter-box">
-
-  <!-- HEADER 1 -->
-  <div class="section-header">
+<!-- SECTION 1 -->
+<div class="section-box">
+  <div class="section-title">
     Marketing Analytics, Conversion Tracking 📈
   </div>
 
@@ -112,13 +104,15 @@ body::before {
 
     Configured Google Analytics 4 (GA4) conversion tracking using Google Tag Manager (GTM) to accurately track course purchases across multiple marketing channels.
     <br><br>
-    The website contained pages with dynamic courses and fees which required custom logic and session storage to capture variable values correctly so that each conversion reflected the specific course and cost selected without the need for manual input.
+    The website contained pages with dynamic courses and fees which required custom logic and session storage to capture variable values correctly so that each conversion reflected the specific course and cost selected without manual input.
     <br><br>
-    Overall, it required structured sequencing and thinking in logical flows rather than isolated steps, similar to what we learned in AI & Robotics.
+    Overall, it required structured sequencing and logical flow thinking rather than isolated steps, similar to what we learned in AI & Robotics.
   </div>
+</div>
 
-  <!-- HEADER 2 -->
-  <div class="section-header">
+<!-- SECTION 2 -->
+<div class="section-box">
+  <div class="section-title">
     Learning Points
   </div>
 
@@ -133,9 +127,11 @@ body::before {
     <br><br>
     Technical development often involves multiple rounds of trial and error before achieving a stable and functional outcome.
   </div>
+</div>
 
-  <!-- HEADER 3 -->
-  <div class="section-header">
+<!-- SECTION 3 -->
+<div class="section-box">
+  <div class="section-title">
     Value-added
   </div>
 
@@ -144,12 +140,11 @@ body::before {
     <br><br>
     The company can now track marketing conversions across channels automatically, and decisions can be supported with clearer data visibility.
     <br><br>
-    These insights also support revenue operations discussions, as understanding which marketing strategies perform best enables more informed resource allocation and strategic planning.
+    These insights also support revenue operations discussions, enabling more informed resource allocation and strategic planning.
   </div>
-
-  <button class="back-btn" onclick="goBack()">← Back</button>
-
 </div>
+
+<button class="back-btn" onclick="goBack()">← Back</button>
 
 <script>
 function goBack(){
