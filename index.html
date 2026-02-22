@@ -81,9 +81,11 @@ h1 {
 .subtitle {
   font-size: 12px;
   opacity: 0.9;
-  margin-bottom: 40px;
-  margin-left: 40px;
-  margin-right: 40px;
+
+  max-width: 600px;      /* limits how wide the text can go */
+  margin: 0 auto 40px;   /* centers it and keeps bottom space */
+  
+  line-height: 1.8;      /* adds better spacing between lines */
 }
 
 button {
