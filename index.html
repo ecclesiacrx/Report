@@ -51,6 +51,20 @@ body::before {
   margin-bottom: 30px; /* space below box for button */
 }
 
+  .title-with-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.company-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+  
 /* TITLES */
 h1 {
   font-size: 20px;
@@ -140,8 +154,10 @@ button:active {
 </div>
 
   <div class="box">
-  <h1 id="title2" class="typing"></h1>
-
+  <h1 class="title-with-image">
+  <span id="title2" class="typing"></span>
+  <img src="company.jpg" class="company-icon">
+</h1>
   <p class="subtitle">
   AKC is a Singapore-based training and consultancy firm that has been supporting companies since 2001. They provide a range of services focused on workplace safety, compliance, and professional development such as MOM-accredited WSH courses, bizSAFE consultancy, and SkillsFuture-approved WSQ and CEI training. As the company continues to grow its digital presence, it’s also expanding how it connects with new learners and clients.
   </p>
@@ -176,7 +192,7 @@ function typeWriter(elementId, text, speed) {
 
 /* Run typing for both titles */
 typeWriter("title1", "Ecclesia’s Internship,\n(1 December 2025 - 27 February 2026) 📚", 60);
-typeWriter("title2", "Company Information 🏢", 60);
+typeWriter("title2", "Company Information", 60);
 
 
 /* FLOATING SPARKLES */
