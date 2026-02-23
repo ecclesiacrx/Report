@@ -126,14 +126,20 @@ button:active {
 <body>
 
 <div class="box">
-  <h1 id="title" class="typing"></h1>
-
+<h1 id="title1" class="typing"></h1>
   <p class="subtitle">
     This reflection documents the key tasks I was involved in during my internship, 
     the skills I’ve developed and the lessons I’ve picked up which supports my growth both professionally and personally.
   </p>
 </div>
 
+  <div class="box">
+  <h1 id="title2" class="typing"></h1>
+
+  <p class="subtitle">
+  AKC is a Singapore-based training and consultancy firm that has been supporting companies since 2001. They provide a range of services focused on workplace safety, compliance, and professional development such as MOM-accredited WSH courses, bizSAFE consultancy, and SkillsFuture-approved WSQ and CEI training. As the company continues to grow its digital presence, it’s also expanding how it connects with new learners and clients.
+  </p>
+</div>
 <!-- BUTTON OUTSIDE BOX -->
 <button onclick="start()">Next</button>
 
@@ -142,25 +148,30 @@ function start(){
   window.location.href="desktop.html";
 }
 
-/* TYPING EFFECT */
-const text = "Ecclesia’s Internship,\n(1 December 2025 - 27 February 2026) 📚";
-let i = 0;
-const speed = 60;
-const title = document.getElementById("title");
+/* TYPING FUNCTION (Reusable) */
+function typeWriter(elementId, text, speed) {
+  let i = 0;
+  const element = document.getElementById(elementId);
 
-function typeWriter() {
-  if (i < text.length) {
-    if (text.charAt(i) === "\n") {
-      title.innerHTML += "<br>";
-    } else {
-      title.innerHTML += text.charAt(i);
+  function typing() {
+    if (i < text.length) {
+      if (text.charAt(i) === "\n") {
+        element.innerHTML += "<br>";
+      } else {
+        element.innerHTML += text.charAt(i);
+      }
+      i++;
+      setTimeout(typing, speed);
     }
-    i++;
-    setTimeout(typeWriter, speed);
   }
+
+  typing();
 }
 
-typeWriter();
+/* Run typing for both titles */
+typeWriter("title1", "Ecclesia’s Internship,\n(1 December 2025 - 27 February 2026) 📚", 60);
+typeWriter("title2", "Company Information 🏢", 60);
+
 
 /* FLOATING SPARKLES */
 setInterval(() => {
