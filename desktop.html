@@ -75,17 +75,30 @@ h1 {
 }
   
 .back-btn {
-  margin-top: 60px;
-  padding: 12px 30px;
+  position: absolute;
+  bottom: 60px;          /* distance from bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  
+  padding: 14px 40px;
   font-size: 12px;
   border: none;
   background: linear-gradient(145deg,#87CEEB,#00BFFF);
   color: white;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 4px 0 #00BFFF;
+  box-shadow: 0 6px 0 #009ACD;
   transition: 0.2s;
-  display: inline-block;   /* important */
+  z-index: 3;
+}
+
+.back-btn:hover {
+  transform: translateX(-50%) translateY(-3px);
+}
+
+.back-btn:active {
+  transform: translateX(-50%) translateY(2px);
+  box-shadow: 0 3px 0 #009ACD;
 }
   
 /* Floating sparkles */
