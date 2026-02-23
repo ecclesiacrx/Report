@@ -14,7 +14,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;   /* push content to top */
+  padding-top: 80px;             /* spacing from top */
+  overflow-x: hidden;            /* allow vertical space */
   background-image: url('background.jpg');
   background-position: right;
   background-size: cover;
@@ -74,12 +76,12 @@ h1 {
   transform: translateY(-8px);
 }
   
-.back-btn {
-  position: absolute;
-  bottom: 10px;          /* distance from bottom */
+ .back-btn {
+  position: fixed;
+  bottom: 40px;     /* distance from screen bottom */
   left: 50%;
   transform: translateX(-50%);
-  
+
   padding: 14px 40px;
   font-size: 12px;
   border: none;
@@ -89,7 +91,16 @@ h1 {
   cursor: pointer;
   box-shadow: 0 6px 0 #009ACD;
   transition: 0.2s;
-  z-index: 3;
+  z-index: 5;
+}
+
+.back-btn:hover {
+  transform: translateX(-50%) translateY(-3px);
+}
+
+.back-btn:active {
+  transform: translateX(-50%) translateY(2px);
+  box-shadow: 0 3px 0 #009ACD;
 }
 
 .back-btn:hover {
