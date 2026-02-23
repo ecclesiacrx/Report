@@ -29,6 +29,29 @@ body {
   padding: 80px 20px;
 }
 
+  .research-content {
+  text-align: center;
+}
+
+.image-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* makes it responsive on small screens */
+  margin-bottom: 20px;
+}
+
+.image-row img {
+  width: 45%;
+  max-width: 260px;
+  border-radius: 15px;
+}
+
+.research-text {
+  font-size: 10px;
+  line-height: 1.6;
+}
+
 /* Dark overlay */
 body::before {
   content: "";
@@ -150,6 +173,22 @@ body::before {
   </div>
 </div>
 
+  <!-- BOX 4 - Research Images -->
+<div class="box box4">
+  <div class="content research-content">
+
+    <div class="image-row">
+      <img src="Task2.jpg" alt="Revenue Operations Research 1">
+      <img src="Task2.1.jpg" alt="Revenue Operations Research 2">
+    </div>
+
+    <p class="research-text">
+      Example of research for Revenue Operations
+    </p>
+
+  </div>
+</div>
+  
 <!-- BOX 3 -->
 <div class="box box3">
   <div class="title typing" id="title3"></div>
